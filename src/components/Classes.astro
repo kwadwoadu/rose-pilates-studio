@@ -1,0 +1,131 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const packages = [
+  {
+    nameKey: 'pkg.intro1.name' as const,
+    descKey: 'pkg.intro1.desc' as const,
+    price: 45,
+    sessions: 1,
+    validity: '1 month',
+    validityFr: '1 mois',
+    isIntro: true,
+  },
+  {
+    nameKey: 'pkg.intro5.name' as const,
+    descKey: 'pkg.intro5.desc' as const,
+    price: 260,
+    sessions: 5,
+    validity: '6 weeks',
+    validityFr: '6 semaines',
+    isIntro: true,
+  },
+  {
+    nameKey: 'pkg.3pack.name' as const,
+    descKey: 'pkg.3pack.desc' as const,
+    price: 180,
+    sessions: 3,
+    validity: '3 months',
+    validityFr: '3 mois',
+    isIntro: false,
+  },
+  {
+    nameKey: 'pkg.10pack.name' as const,
+    descKey: 'pkg.10pack.desc' as const,
+    price: 550,
+    sessions: 10,
+    validity: '6 months',
+    validityFr: '6 mois',
+    isIntro: false,
+  },
+  {
+    nameKey: 'pkg.intensive1.name' as const,
+    descKey: 'pkg.intensive1.desc' as const,
+    price: 300,
+    sessions: 6,
+    validity: '2 months',
+    validityFr: '2 mois',
+    isIntro: false,
+  },
+  {
+    nameKey: 'pkg.intensive2.name' as const,
+    descKey: 'pkg.intensive2.desc' as const,
+    price: 575,
+    sessions: 12,
+    validity: '2 months',
+    validityFr: '2 mois',
+    isIntro: false,
+  },
+];
+---
+
+<section id="classes" class="section-padding">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16 scroll-animate">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-16 h-px" style="background-color: var(--color-accent-rose); opacity: 0.3;"></div>
+        <span class="text-sm tracking-widest uppercase" style="color: var(--color-accent-rose);">{t('classes.label')}</span>
+        <div class="w-16 h-px" style="background-color: var(--color-accent-rose); opacity: 0.3;"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl mb-4">{t('classes.heading')}</h2>
+      <p class="max-w-2xl mx-auto" style="color: var(--color-text-muted);">{t('classes.intro')}</p>
+    </div>
+
+    <!-- Package Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 scroll-animate stagger-children">
+      {packages.map((pkg) => (
+        <div class:list={[
+          'bg-white rounded-sm shadow-sm p-8 flex flex-col card-hover relative',
+          pkg.isIntro && 'ring-2 ring-accent-rose'
+        ]}>
+          {pkg.isIntro && (
+            <span class="absolute top-4 right-4 text-xs font-medium uppercase tracking-wider px-3 py-1" style="background-color: var(--color-accent-rose); color: white;">
+              {t('classes.introOffer')}
+            </span>
+          )}
+
+          <h3 class="text-xl font-serif font-medium mb-2" style="color: var(--color-text);">
+            {t(pkg.nameKey)}
+          </h3>
+
+          <div class="mb-4">
+            <span class="text-3xl font-serif font-semibold" style="color: var(--color-accent-rose);">
+              {pkg.price}&euro;
+            </span>
+            {pkg.sessions > 1 && (
+              <span class="text-sm ml-1" style="color: var(--color-text-muted);">
+                ({Math.round(pkg.price / pkg.sessions)}&euro;{t('classes.perSession')})
+              </span>
+            )}
+          </div>
+
+          <p class="text-sm mb-4" style="color: var(--color-text-muted);">
+            {pkg.sessions} {pkg.sessions === 1 ? t('classes.session') : t('classes.sessions')} &middot; {t('classes.validity')} {lang === 'fr' ? pkg.validityFr : pkg.validity}
+          </p>
+
+          <p class="text-sm leading-relaxed mb-6 flex-grow" style="color: var(--color-text-body);">
+            {t(pkg.descKey)}
+          </p>
+
+          <a href={translatePath('/booking')} class="btn-primary text-center text-sm">
+            {t('classes.bookCta')}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Student specials -->
+    <div class="mt-12 text-center scroll-animate" style="background-color: var(--color-bg-warm); padding: 2.5rem; border-left: 4px solid var(--color-accent-blue);">
+      <h3 class="text-xl font-serif font-medium mb-3" style="color: var(--color-text);">{t('classes.studentTitle')}</h3>
+      <p class="mb-4" style="color: var(--color-text-muted);">{t('classes.studentText')}</p>
+      <a href="mailto:rorosey@icloud.com" class="btn-outline text-sm">
+        {t('classes.studentCta')}
+      </a>
+    </div>
+  </div>
+</section>

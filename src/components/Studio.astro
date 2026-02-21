@@ -1,0 +1,26 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="studio" class="parallax-bg relative flex items-center justify-center" style="background-image: url('/images/studio-interior.jpg'); min-height: 500px;">
+  <div class="absolute inset-0 bg-[rgba(26,26,26,0.5)]"></div>
+  <div class="relative z-10 text-center text-white px-6 py-20 max-w-3xl mx-auto">
+    <div class="scroll-animate">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-16 h-px bg-white/30"></div>
+        <span class="text-sm tracking-widest uppercase text-white/80">{t('studio.label')}</span>
+        <div class="w-16 h-px bg-white/30"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8">{t('studio.heading')}</h2>
+      <p class="text-white/90 leading-relaxed mb-6 text-lg">
+        {t('studio.text1')}
+      </p>
+      <p class="text-white/90 leading-relaxed text-lg">
+        {t('studio.text2')}
+      </p>
+    </div>
+  </div>
+</section>

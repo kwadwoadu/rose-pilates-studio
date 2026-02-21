@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={`${t('booking.title')} | Rose Pilates Studio`}>
+  <Nav />
+
+  <main class="pt-28 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-serif font-semibold mb-4" style="color: var(--color-text);">
+          {t('booking.heading')}
+        </h1>
+        <p style="color: var(--color-text-muted);">
+          {t('booking.intro')}
+        </p>
+      </div>
+
+      <!-- Cal.com embed placeholder -->
+      <div class="rounded-sm p-12 text-center" style="background-color: var(--color-bg-warm); border: 2px dashed var(--color-border-light);">
+        <svg class="w-16 h-16 mx-auto mb-6" style="color: var(--color-accent-rose);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <p class="text-lg font-medium mb-4" style="color: var(--color-text);">
+          {t('booking.placeholder')}
+        </p>
+        <a href="mailto:rorosey@icloud.com" class="btn-primary">
+          {lang === 'fr' ? 'Contacter Rose' : 'Contact Rose'}
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

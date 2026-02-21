@@ -1,0 +1,134 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const altLang = lang === 'en' ? 'fr' : 'en';
+
+const {
+  title = `Rose Pilates Studio | ${lang === 'fr' ? 'Pilates reformer prive a Bordeaux' : 'Private Reformer Pilates in Bordeaux'}`,
+  description = lang === 'fr'
+    ? 'Studio de Pilates reformer prive a Bordeaux. Cours individuels avec Rose, instructrice certifiee BASI. Reservez votre seance.'
+    : 'Private reformer Pilates studio in Bordeaux. One-on-one sessions with Rose, a BASI-certified instructor. Book your session.',
+  image = '/images/rose-reformer.jpg'
+} = Astro.props;
+
+const siteUrl = Astro.site || new URL('https://rosepilates.studio');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const currentPath = Astro.url.pathname;
+
+// Build alternate URL for hreflang
+let altPath: string;
+if (lang === 'en') {
+  altPath = `/fr${currentPath === '/' ? '/' : currentPath}`;
+} else {
+  altPath = currentPath.replace(/^\/fr/, '') || '/';
+}
+const altURL = new URL(altPath, siteUrl);
+const enURL = lang === 'en' ? canonicalURL : altURL;
+const frURL = lang === 'fr' ? canonicalURL : altURL;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href={enURL} />
+  <link rel="alternate" hreflang="fr" href={frURL} />
+  <link rel="alternate" hreflang="x-default" href={enURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, siteUrl)} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalURL} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL(image, siteUrl)} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet" />
+
+  <slot name="head" />
+</head>
+<body class="antialiased">
+  <slot />
+
+  <!-- LocalBusiness JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Rose Pilates Studio",
+    "description": "Private reformer Pilates studio in Bordeaux offering one-on-one sessions with a BASI-certified instructor.",
+    "url": "https://rosepilates.studio",
+    "telephone": "+33768266957",
+    "email": "rorosey@icloud.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "236 Rue Camille Godard",
+      "addressLocality": "Bordeaux",
+      "postalCode": "33000",
+      "addressCountry": "FR"
+    },
+    "priceRange": "$$",
+    "image": "https://rosepilates.studio/images/studio-interior.jpg",
+    "knowsLanguage": ["en", "fr", "da", "sv"]
+  })} />
+
+  <!-- Scroll animations -->
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
+        observer.observe(el);
+      });
+    } else {
+      document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
+        el.classList.add('in-view');
+      });
+    }
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

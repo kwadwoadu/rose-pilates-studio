@@ -1,0 +1,44 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+let targetPath: string;
+if (lang === 'en') {
+  targetPath = `/fr${currentPath === '/' ? '/' : currentPath}`;
+} else {
+  targetPath = currentPath.replace(/^\/fr/, '') || '/';
+}
+---
+
+<a
+  href={targetPath}
+  class="lang-toggle"
+  aria-label={lang === 'en' ? 'Switch to French' : 'Switch to English'}
+>
+  {lang === 'en' ? 'FR' : 'EN'}
+</a>
+
+<style>
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .lang-toggle:hover {
+    background-color: var(--color-accent-rose);
+    border-color: var(--color-accent-rose);
+    color: white;
+  }
+</style>
