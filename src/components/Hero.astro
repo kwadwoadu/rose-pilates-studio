@@ -7,26 +7,15 @@ const translatePath = useTranslatedPath(lang);
 ---
 
 <section class="relative h-[90vh] min-h-[600px] flex items-end overflow-hidden">
-  <!-- Background image -->
   <img
-    src="/images/rose-reformer.jpg"
+    src="/images/equipment-bw.jpg"
     alt="Rose Pilates Studio"
     class="absolute inset-0 w-full h-full object-cover"
   />
-
-  <!-- Bottom gradient -->
   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-
-  <!-- Content - left-aligned, at bottom -->
   <div class="relative z-10 text-white px-6 md:px-12 pb-20 md:pb-28 max-w-2xl">
-    <h1 class="mb-6">
-      {t('hero.title')}
-    </h1>
-    <p class="text-lg md:text-xl text-white/85 mb-14 font-light tracking-wide">
-      {t('hero.tagline')}
-    </p>
-    <a href={translatePath('/booking')} class="btn-primary">
-      {t('hero.cta')}
-    </a>
+    <h1 class="mb-6">{t('hero.title')}</h1>
+    <p class="text-lg md:text-xl text-white/90 mb-10 font-light tracking-wide">{t('hero.tagline')}</p>
+    <a href={translatePath('/booking')} class="btn-primary text-base px-8 py-4">{t('hero.cta')}</a>
   </div>
 </section>

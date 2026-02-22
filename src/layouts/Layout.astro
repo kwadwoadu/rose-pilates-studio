@@ -117,11 +117,11 @@ const frURL = lang === 'fr' ? canonicalURL : altURL;
         rootMargin: '0px 0px -50px 0px'
       });
 
-      document.querySelectorAll('.scroll-animate').forEach(el => {
+      document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
         observer.observe(el);
       });
     } else {
-      document.querySelectorAll('.scroll-animate').forEach(el => {
+      document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
         el.classList.add('in-view');
       });
     }

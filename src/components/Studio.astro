@@ -5,24 +5,20 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="studio">
-  <!-- Full-width image, no overlay -->
-  <img
-    src="/images/studio-interior.jpg"
-    alt="Rose Pilates Studio interior"
-    class="w-full h-[50vh] md:h-[60vh] object-cover"
-    loading="lazy"
-  />
-
-  <!-- Text below -->
-  <div class="section-padding">
-    <div class="max-w-[720px] mx-auto scroll-animate">
-      <span class="overline">{t('studio.label')}</span>
-      <h2 class="mt-5 mb-10">{t('studio.heading')}</h2>
-      <p class="leading-relaxed mb-8" style="color: var(--color-text-body);">
+<section id="studio" class="parallax-bg relative flex items-center justify-center" style="background-image: url('/images/studio-interior.jpg'); min-height: 500px;">
+  <div class="absolute inset-0 bg-[rgba(26,26,26,0.5)]"></div>
+  <div class="relative z-10 text-center text-white px-6 py-20 max-w-3xl mx-auto">
+    <div class="scroll-animate">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-16 h-px bg-white/30"></div>
+        <span class="text-sm tracking-widest uppercase text-white/80">{t('studio.label')}</span>
+        <div class="w-16 h-px bg-white/30"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-8">{t('studio.heading')}</h2>
+      <p class="text-white/90 leading-relaxed mb-6 text-lg">
         {t('studio.text1')}
       </p>
-      <p class="leading-relaxed" style="color: var(--color-text-body);">
+      <p class="text-white/90 leading-relaxed text-lg">
         {t('studio.text2')}
       </p>
     </div>

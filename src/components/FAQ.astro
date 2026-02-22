@@ -20,32 +20,37 @@ const faqs = [
 ];
 ---
 
-<section id="faq" class="section-padding">
-  <div class="max-w-[720px] mx-auto">
-    <!-- Heading only -->
-    <div class="mb-16 scroll-animate">
-      <h2>{t('faq.heading')}</h2>
+<section id="faq" class="section-padding" style="background-color: var(--color-bg-warm);">
+  <div class="max-w-3xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12 scroll-animate">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <div class="w-16 h-px" style="background-color: var(--color-accent-rose); opacity: 0.3;"></div>
+        <span class="text-sm tracking-widest uppercase" style="color: var(--color-accent-rose);">{t('faq.label')}</span>
+        <div class="w-16 h-px" style="background-color: var(--color-accent-rose); opacity: 0.3;"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl">{t('faq.heading')}</h2>
     </div>
 
-    <!-- FAQ Accordion -->
-    <div class="scroll-animate">
+    <!-- FAQ Accordion (zero JS - native details/summary) -->
+    <div class="space-y-3 scroll-animate">
       {faqs.map((faq) => (
-        <details class="faq-item group" style="border-top: 1px solid var(--color-border-light);">
-          <summary class="flex items-center justify-between gap-4 py-8 cursor-pointer list-none">
-            <span class="font-serif text-lg" style="color: var(--color-text);">{faq.q}</span>
-            <span class="faq-icon flex-shrink-0 text-xl transition-transform duration-300 group-open:rotate-45" style="color: var(--color-accent-rose);">+</span>
+        <details class="faq-item group bg-white border rounded-sm" style="border-color: var(--color-border-light);">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-medium" style="color: var(--color-text);">
+            <span>{faq.q}</span>
+            <svg class="w-5 h-5 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" style="color: var(--color-accent-rose);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </summary>
-          <div class="pb-8">
+          <div class="px-6 pb-5">
             <p class="leading-relaxed" style="color: var(--color-text-muted);">{faq.a}</p>
           </div>
         </details>
       ))}
-      <!-- Bottom border for last item -->
-      <div style="border-top: 1px solid var(--color-border-light);"></div>
     </div>
 
     <!-- Ask a Question CTA -->
-    <div class="mt-16 scroll-animate">
+    <div class="text-center mt-12 scroll-animate">
       <a href="mailto:rorosey@icloud.com" class="btn-outline">
         {t('faq.askCta')}
       </a>
@@ -54,6 +59,7 @@ const faqs = [
 </section>
 
 <style>
+  /* Remove default marker */
   details summary::-webkit-details-marker {
     display: none;
   }
