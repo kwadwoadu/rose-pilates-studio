@@ -75,7 +75,7 @@ const frURL = lang === 'fr' ? canonicalURL : altURL;
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <slot name="head" />
 </head>
@@ -117,11 +117,11 @@ const frURL = lang === 'fr' ? canonicalURL : altURL;
         rootMargin: '0px 0px -50px 0px'
       });
 
-      document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
+      document.querySelectorAll('.scroll-animate').forEach(el => {
         observer.observe(el);
       });
     } else {
-      document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
+      document.querySelectorAll('.scroll-animate').forEach(el => {
         el.classList.add('in-view');
       });
     }

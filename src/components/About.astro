@@ -5,48 +5,41 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="about" class="section-padding" style="background-color: var(--color-bg-warm);">
-  <div class="max-w-7xl mx-auto">
-    <!-- Section label -->
-    <div class="text-center mb-12 scroll-animate">
-      <div class="flex items-center justify-center gap-4 mb-6">
-        <div class="w-16 h-px" style="background-color: var(--color-accent-rose); opacity: 0.3;"></div>
-        <span class="text-sm tracking-widest uppercase" style="color: var(--color-accent-rose);">{t('about.label')}</span>
-        <div class="w-16 h-px" style="background-color: var(--color-accent-rose); opacity: 0.3;"></div>
-      </div>
-      <h2 class="text-3xl md:text-4xl">{t('about.heading')}</h2>
+<section id="about" class="section-padding">
+  <div class="max-w-3xl mx-auto">
+    <!-- Overline label + heading -->
+    <div class="mb-12 scroll-animate">
+      <span class="text-xs tracking-[0.2em] uppercase font-medium" style="color: var(--color-accent-rose);">{t('about.label')}</span>
+      <h2 class="mt-4">{t('about.heading')}</h2>
     </div>
 
-    <!-- Two column layout -->
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <!-- Portrait -->
-      <div class="scroll-animate-left">
-        <div class="relative">
-          <img
-            src="/images/rose-portrait.jpg"
-            alt="Rose - Pilates instructor"
-            class="w-full max-w-md mx-auto shadow-lg"
-            loading="lazy"
-          />
-          <div class="absolute -bottom-4 -right-4 w-full h-full border-2 -z-10" style="border-color: var(--color-accent-rose); opacity: 0.3;"></div>
-        </div>
-      </div>
+    <!-- Bio paragraphs with image between -->
+    <div class="scroll-animate">
+      <p class="mb-6 leading-relaxed" style="color: var(--color-text-body);">
+        {t('about.bio1')}
+      </p>
+      <p class="mb-10 leading-relaxed" style="color: var(--color-text-body);">
+        {t('about.bio2')}
+      </p>
+    </div>
 
-      <!-- Bio -->
-      <div class="scroll-animate-right">
-        <p class="mb-6 leading-relaxed" style="color: var(--color-text-body);">
-          {t('about.bio1')}
-        </p>
-        <p class="mb-6 leading-relaxed" style="color: var(--color-text-body);">
-          {t('about.bio2')}
-        </p>
-        <p class="mb-8 leading-relaxed" style="color: var(--color-text-body);">
-          {t('about.bio3')}
-        </p>
-        <p class="text-sm tracking-wide uppercase font-medium" style="color: var(--color-accent-rose);">
-          {t('about.credentials')}
-        </p>
-      </div>
+    <!-- Portrait image between paragraphs -->
+    <div class="mb-10 scroll-animate">
+      <img
+        src="/images/rose-portrait.jpg"
+        alt="Rose - Pilates instructor"
+        class="w-full md:w-[70%]"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="scroll-animate">
+      <p class="mb-8 leading-relaxed" style="color: var(--color-text-body);">
+        {t('about.bio3')}
+      </p>
+      <p class="text-xs tracking-[0.15em] uppercase font-medium" style="color: var(--color-accent-rose);">
+        {t('about.credentials')}
+      </p>
     </div>
   </div>
 </section>

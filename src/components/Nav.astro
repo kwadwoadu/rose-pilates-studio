@@ -13,17 +13,17 @@ const translatePath = useTranslatedPath(lang);
 <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a href={translatePath('/')} class="text-white font-serif text-xl tracking-wide transition-colors duration-300 nav-logo">
+    <a href={translatePath('/')} class="text-white font-serif text-xl font-normal tracking-[0.05em] transition-colors duration-300 nav-logo">
       Rose Pilates
     </a>
 
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center gap-8">
-      <a href={translatePath('/#about')} class="nav-link text-white/90 hover:text-white transition-colors text-sm tracking-wide">{t('nav.about')}</a>
-      <a href={translatePath('/#studio')} class="nav-link text-white/90 hover:text-white transition-colors text-sm tracking-wide">{t('nav.studio')}</a>
-      <a href={translatePath('/#classes')} class="nav-link text-white/90 hover:text-white transition-colors text-sm tracking-wide">{t('nav.classes')}</a>
-      <a href={translatePath('/#faq')} class="nav-link text-white/90 hover:text-white transition-colors text-sm tracking-wide">{t('nav.faq')}</a>
-      <a href={translatePath('/#contact')} class="nav-link text-white/90 hover:text-white transition-colors text-sm tracking-wide">{t('nav.contact')}</a>
+      <a href={translatePath('/#about')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.about')}</a>
+      <a href={translatePath('/#studio')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.studio')}</a>
+      <a href={translatePath('/#classes')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.classes')}</a>
+      <a href={translatePath('/#faq')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.faq')}</a>
+      <a href={translatePath('/#contact')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.contact')}</a>
       <LanguageToggle />
       <a href={translatePath('/booking')} class="nav-cta bg-accent-rose text-white px-5 py-2 text-sm tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5 uppercase font-medium">
         {t('nav.book')}
@@ -114,8 +114,8 @@ const translatePath = useTranslatedPath(lang);
 
 <style>
   .header-scrolled {
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-bg-primary);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   }
 
   .header-scrolled .nav-logo {
