@@ -18,14 +18,14 @@ const translatePath = useTranslatedPath(lang);
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-10">
       <a href={translatePath('/#about')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.about')}</a>
       <a href={translatePath('/#studio')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.studio')}</a>
       <a href={translatePath('/#classes')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.classes')}</a>
       <a href={translatePath('/#faq')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.faq')}</a>
       <a href={translatePath('/#contact')} class="nav-link text-white/90 hover:text-white transition-colors text-[0.75rem] tracking-[0.1em] uppercase font-normal">{t('nav.contact')}</a>
       <LanguageToggle />
-      <a href={translatePath('/booking')} class="nav-cta bg-accent-rose text-white px-5 py-2 text-sm tracking-wide transition-all hover:shadow-lg hover:-translate-y-0.5 uppercase font-medium">
+      <a href={translatePath('/booking')} class="nav-cta bg-[var(--color-text)] text-white px-6 py-2.5 text-xs tracking-[0.15em] transition-all hover:bg-[#3D3733] hover:-translate-y-0.5 uppercase font-medium">
         {t('nav.book')}
       </a>
     </div>
@@ -131,7 +131,7 @@ const translatePath = useTranslatedPath(lang);
   }
 
   .header-scrolled .nav-cta {
-    background-color: var(--color-accent-rose);
+    background-color: var(--color-text);
     color: white;
   }
 

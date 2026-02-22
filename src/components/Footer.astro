@@ -8,14 +8,14 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  <div class="max-w-3xl mx-auto px-6 pt-0 pb-12">
-    <hr style="border-color: var(--color-border-light); border-top-width: 1px;" class="mb-12" />
+  <div class="max-w-[840px] mx-auto px-6 pt-0 pb-12">
+    <hr style="border-color: var(--color-border-light); border-top-width: 1px;" class="mb-16" />
 
     <!-- Brand name -->
-    <p class="font-serif text-xl mb-8" style="color: var(--color-text);">Rose Pilates Studio</p>
+    <p class="font-serif text-xl mb-10" style="color: var(--color-text);">Rose Pilates Studio</p>
 
     <!-- Nav links - horizontal -->
-    <nav class="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+    <nav class="flex flex-wrap gap-x-8 gap-y-3 mb-6">
       <a href={translatePath('/#about')} class="text-sm link-underline" style="color: var(--color-text-muted);">{t('nav.about')}</a>
       <a href={translatePath('/#studio')} class="text-sm link-underline" style="color: var(--color-text-muted);">{t('nav.studio')}</a>
       <a href={translatePath('/#classes')} class="text-sm link-underline" style="color: var(--color-text-muted);">{t('nav.classes')}</a>
@@ -25,7 +25,7 @@ const currentYear = new Date().getFullYear();
     </nav>
 
     <!-- Legal links - horizontal -->
-    <nav class="flex flex-wrap gap-x-6 gap-y-2 mb-10">
+    <nav class="flex flex-wrap gap-x-8 gap-y-3 mb-12">
       <a href={translatePath('/mentions-legales')} class="text-xs link-underline" style="color: var(--color-text-muted);">{t('footer.mentions')}</a>
       <a href={translatePath('/cgv')} class="text-xs link-underline" style="color: var(--color-text-muted);">{t('footer.cgv')}</a>
       <a href={translatePath('/waiver')} class="text-xs link-underline" style="color: var(--color-text-muted);">{t('footer.waiver')}</a>

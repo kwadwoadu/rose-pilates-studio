@@ -70,36 +70,36 @@ const categories = [
 ---
 
 <section id="classes" class="section-padding">
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-[840px] mx-auto">
     <!-- Section Header -->
-    <div class="mb-16 scroll-animate">
-      <span class="text-xs tracking-[0.2em] uppercase font-medium" style="color: var(--color-accent-rose);">{t('classes.label')}</span>
-      <h2 class="mt-4 mb-4">{t('classes.heading')}</h2>
+    <div class="mb-20 scroll-animate">
+      <span class="overline">{t('classes.label')}</span>
+      <h2 class="mt-6 mb-6">{t('classes.heading')}</h2>
       <p style="color: var(--color-text-muted);">{t('classes.intro')}</p>
     </div>
 
     <!-- Grouped editorial list -->
     {categories.map((category) => (
-      <div class="mb-14 scroll-animate">
-        <h3 class="font-serif mb-6" style="color: var(--color-text);">
+      <div class="mb-20 scroll-animate">
+        <p class="overline mb-2">
           {t(category.titleKey)}
-        </h3>
+        </p>
 
         {category.packages.map((pkg) => (
-          <div class="py-6" style="border-top: 1px solid var(--color-border-light);">
-            <div class="flex items-baseline justify-between gap-4 mb-2">
-              <span class="font-serif text-lg" style="color: var(--color-text);">{t(pkg.nameKey)}</span>
-              <span class="font-serif text-lg whitespace-nowrap" style="color: var(--color-accent-rose);">
+          <div class="py-10" style="border-top: 1px solid var(--color-border-light);">
+            <div class="flex items-baseline justify-between gap-8 mb-4">
+              <span class="font-serif text-xl" style="color: var(--color-text);">{t(pkg.nameKey)}</span>
+              <span class="font-serif text-2xl whitespace-nowrap" style="color: var(--color-accent-rose);">
                 {pkg.price}&euro;
               </span>
             </div>
-            <p class="text-sm mb-1" style="color: var(--color-text-muted);">
+            <p class="text-sm mb-3" style="color: var(--color-text-muted);">
               {pkg.sessions} {pkg.sessions === 1 ? t('classes.session') : t('classes.sessions')} &middot; {t('classes.validity')} {lang === 'fr' ? pkg.validityFr : pkg.validity}
               {pkg.sessions > 1 && (
                 <span> &middot; {Math.round(pkg.price / pkg.sessions)}&euro;{t('classes.perSession')}</span>
               )}
             </p>
-            <p class="text-sm leading-relaxed" style="color: var(--color-text-body);">
+            <p class="text-[0.9375rem] leading-relaxed" style="color: var(--color-text-body);">
               {t(pkg.descKey)}
             </p>
           </div>
@@ -108,16 +108,16 @@ const categories = [
     ))}
 
     <!-- Student specials -->
-    <div class="py-8 scroll-animate" style="border-top: 1px solid var(--color-border-light);">
-      <h3 class="font-serif mb-3" style="color: var(--color-text);">{t('classes.studentTitle')}</h3>
-      <p class="mb-6" style="color: var(--color-text-muted);">{t('classes.studentText')}</p>
-      <a href="mailto:rorosey@icloud.com" class="btn-outline text-sm">
+    <div class="py-12 scroll-animate" style="border-top: 1px solid var(--color-border-light); background-color: var(--color-bg-warm); margin-left: -2rem; margin-right: -2rem; padding-left: 2rem; padding-right: 2rem;">
+      <p class="overline mb-4">{t('classes.studentTitle')}</p>
+      <p class="mb-8" style="color: var(--color-text-muted);">{t('classes.studentText')}</p>
+      <a href="mailto:rorosey@icloud.com" class="btn-outline">
         {t('classes.studentCta')}
       </a>
     </div>
 
     <!-- Single CTA -->
-    <div class="mt-12 scroll-animate">
+    <div class="mt-16 scroll-animate">
       <a href={translatePath('/booking')} class="btn-primary">
         {t('classes.bookCta')}
       </a>

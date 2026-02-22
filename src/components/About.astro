@@ -6,25 +6,25 @@ const t = useTranslations(lang);
 ---
 
 <section id="about" class="section-padding">
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-[720px] mx-auto">
     <!-- Overline label + heading -->
-    <div class="mb-12 scroll-animate">
-      <span class="text-xs tracking-[0.2em] uppercase font-medium" style="color: var(--color-accent-rose);">{t('about.label')}</span>
+    <div class="mb-16 scroll-animate">
+      <span class="overline">{t('about.label')}</span>
       <h2 class="mt-4">{t('about.heading')}</h2>
     </div>
 
     <!-- Bio paragraphs with image between -->
     <div class="scroll-animate">
-      <p class="mb-6 leading-relaxed" style="color: var(--color-text-body);">
+      <p class="mb-8 leading-relaxed" style="color: var(--color-text-body);">
         {t('about.bio1')}
       </p>
-      <p class="mb-10 leading-relaxed" style="color: var(--color-text-body);">
+      <p class="mb-14 leading-relaxed" style="color: var(--color-text-body);">
         {t('about.bio2')}
       </p>
     </div>
 
     <!-- Portrait image between paragraphs -->
-    <div class="mb-10 scroll-animate">
+    <div class="mb-14 scroll-animate">
       <img
         src="/images/rose-portrait.jpg"
         alt="Rose - Pilates instructor"
@@ -34,10 +34,10 @@ const t = useTranslations(lang);
     </div>
 
     <div class="scroll-animate">
-      <p class="mb-8 leading-relaxed" style="color: var(--color-text-body);">
+      <p class="mb-10 leading-relaxed" style="color: var(--color-text-body);">
         {t('about.bio3')}
       </p>
-      <p class="text-xs tracking-[0.15em] uppercase font-medium" style="color: var(--color-accent-rose);">
+      <p class="overline">
         {t('about.credentials')}
       </p>
     </div>

@@ -6,36 +6,36 @@ const t = useTranslations(lang);
 ---
 
 <section id="contact" class="section-padding">
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-[840px] mx-auto">
     <!-- Header -->
-    <div class="mb-12 scroll-animate">
-      <span class="text-xs tracking-[0.2em] uppercase font-medium" style="color: var(--color-accent-rose);">{t('contact.label')}</span>
+    <div class="mb-16 scroll-animate">
+      <span class="overline">{t('contact.label')}</span>
       <h2 class="mt-4">{t('contact.heading')}</h2>
     </div>
 
     <!-- Typographic 2x2 grid -->
-    <div class="grid grid-cols-2 gap-x-12 gap-y-10 mb-14 scroll-animate">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 mb-20 scroll-animate">
       <!-- Email -->
       <div>
-        <p class="text-xs tracking-[0.15em] uppercase mb-2" style="color: var(--color-text-muted);">Email</p>
+        <p class="text-xs tracking-[0.15em] uppercase mb-3" style="color: var(--color-text-muted);">Email</p>
         <a href="mailto:rorosey@icloud.com" class="link-underline" style="color: var(--color-text);">{t('contact.email')}</a>
       </div>
 
       <!-- Phone -->
       <div>
-        <p class="text-xs tracking-[0.15em] uppercase mb-2" style="color: var(--color-text-muted);">{lang === 'fr' ? 'Telephone' : 'Phone'}</p>
+        <p class="text-xs tracking-[0.15em] uppercase mb-3" style="color: var(--color-text-muted);">{lang === 'fr' ? 'Telephone' : 'Phone'}</p>
         <a href="tel:+33768266957" class="link-underline" style="color: var(--color-text);">{t('contact.phone')}</a>
       </div>
 
       <!-- Address -->
       <div>
-        <p class="text-xs tracking-[0.15em] uppercase mb-2" style="color: var(--color-text-muted);">{lang === 'fr' ? 'Adresse' : 'Address'}</p>
+        <p class="text-xs tracking-[0.15em] uppercase mb-3" style="color: var(--color-text-muted);">{lang === 'fr' ? 'Adresse' : 'Address'}</p>
         <p style="color: var(--color-text);">{t('contact.address')}</p>
       </div>
 
       <!-- Languages -->
       <div>
-        <p class="text-xs tracking-[0.15em] uppercase mb-2" style="color: var(--color-text-muted);">{lang === 'fr' ? 'Langues' : 'Languages'}</p>
+        <p class="text-xs tracking-[0.15em] uppercase mb-3" style="color: var(--color-text-muted);">{lang === 'fr' ? 'Langues' : 'Languages'}</p>
         <p style="color: var(--color-text);">{lang === 'fr' ? 'Anglais, francais, danois, suedois' : 'English, French, Danish, Swedish'}</p>
       </div>
     </div>
@@ -45,7 +45,7 @@ const t = useTranslations(lang);
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.1!2d-0.5876!3d44.8378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527c0fb1c6d1b%3A0x0!2s236+Rue+Camille+Godard%2C+33000+Bordeaux!5e0!3m2!1sen!2sfr!4v1"
         width="100%"
-        height="400"
+        height="350"
         style="border:0; filter: grayscale(100%) contrast(1.1);"
         allowfullscreen=""
         loading="lazy"
